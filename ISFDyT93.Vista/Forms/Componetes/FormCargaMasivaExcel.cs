@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using ISFDyT93.Vista.Forms.Alumnos;
 using ISFDyT93.Vista.Forms.Componetes;
 using ISFDyT93.Vista.Core.Enums;
+using System.Xml.Linq;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ISFDyT93.Vista.Forms.Componentes
 {
@@ -56,12 +59,41 @@ namespace ISFDyT93.Vista.Forms.Componentes
             }
         }
 
+        /// <summary>
+        /// Indica si una columna de Excel coincide con alguna de las variantes definidas en el XML para la propiedad indicada.
+        /// </summary>
+        /// <param name="nombrePropiedad">Clave definida en el XML.</param>
+        /// <param name="nombreExcel">Nombre de la columna a evaluar.</param>
+        /// <returns>True si hay coincidencia; de lo contrario, false.</returns>
+        public bool BuscarCoincidencia(string nombrePropiedad, string nombreExcel)
+        {
+            XDocument doc = XDocument.Load("C:\\REPO\\InstitutoNET\\datos.xml");// ojo ver ruta del xml, lo puse asi para probar, pero hay que ver como lo hacemos para que funcione en cualquier pc
+            Dictionary<string, List<string>> dic = doc.Root.Elements()
+                                                           .ToDictionary(
+                                                                nodo => nodo.Name.LocalName.ToLower(),
+                                                                nodo => nodo.Elements()
+                                                                            .Select(x => x.Value.ToLower())
+                                                                            .ToList()
+                                                           );
+
+            nombrePropiedad = nombrePropiedad.ToLower();
+            nombreExcel = nombreExcel.ToLower();
+
+            if (!dic.ContainsKey(nombrePropiedad))
+                return false;
+
+            return dic[nombrePropiedad]
+                .Any(c => nombreExcel.Contains(c));
+        }
+
         private void btnAceptarCargaMasiva_Click(object sender, EventArgs e)
         {
             if (dtExcel != null)
             {
                 DataTable dtCarreras = new DataTable();
                 dtCarreras = carrerasLogica.ObtenerCarreras();
+
+                bool encontrada = BuscarCoincidencia("email", "mail");
 
                 foreach (DataRow dr2 in dtCarreras.Rows)
                 {
