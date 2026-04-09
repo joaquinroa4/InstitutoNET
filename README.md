@@ -2,7 +2,8 @@
 
 Proyecto desarrollado para la gestión de procesos internos del Instituto Superior de Formación Docente y Técnica N° 93.
 
-> [!NOTE Nota]
+> [!NOTE]
+>
 > TODO: Agregar descripción detallada del proyecto, funcionalidades, tecnologías utilizadas, etc.
 
 ---
