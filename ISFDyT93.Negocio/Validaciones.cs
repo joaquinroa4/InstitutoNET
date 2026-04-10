@@ -301,7 +301,7 @@ namespace ISFDyT93.Negocio
             return !profesorLogica.PersonalExiste(Documento);
         }
 
-        public string CrearSlug(string texto)
+        public static string CrearSlug(string texto)
         {
             if (string.IsNullOrWhiteSpace(texto))
                 return string.Empty;
