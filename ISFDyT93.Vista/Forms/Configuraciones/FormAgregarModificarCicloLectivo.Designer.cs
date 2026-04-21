@@ -373,6 +373,7 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
             this.txtAnioLectivo.Name = "txtAnioLectivo";
             this.txtAnioLectivo.Size = new System.Drawing.Size(335, 27);
             this.txtAnioLectivo.TabIndex = 1;
+            this.txtAnioLectivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAnioLectivo_KeyPress);
             // 
             // lblNuevoCicloLectivo
             // 
