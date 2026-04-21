@@ -360,6 +360,14 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
                 dtpFechaMarzoInicio.CustomFormat = "dd/MM/yyyy";
         }
 
+        private void txtAnioLectivo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) == true))
+                e.Handled = true;
+            if (e.KeyChar == 08)
+                e.Handled = false;
+        }
+
         private void dtpFechaMarzoFinal_ValueChanged(object sender, EventArgs e)
         {
             if (dtpFechaMarzoFinal.Value != dtpFechaMarzoFinal.MinDate)
