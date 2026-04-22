@@ -68,6 +68,12 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
             this.grbFinalesDiciembre = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.grbInscripcionSuperior = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.dtpFechaSuperiorInicio = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaSuperiorFinal = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.epvCicloLectivo)).BeginInit();
             this.grbDatosCicloLectivo.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -78,6 +84,8 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
             this.grbFinalesDiciembre.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            this.grbInscripcionSuperior.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAceptar
@@ -260,7 +268,7 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
             this.dtpFechaInscripcionInicio.Location = new System.Drawing.Point(24, 195);
             this.dtpFechaInscripcionInicio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpFechaInscripcionInicio.Name = "dtpFechaInscripcionInicio";
-            this.dtpFechaInscripcionInicio.Size = new System.Drawing.Size(339, 27);
+            this.dtpFechaInscripcionInicio.Size = new System.Drawing.Size(341, 27);
             this.dtpFechaInscripcionInicio.TabIndex = 125;
             this.dtpFechaInscripcionInicio.ValueChanged += new System.EventHandler(this.dtpFechaInscripcionInicio_ValueChanged);
             // 
@@ -270,10 +278,10 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
             this.dtpFechaInscripcionFinal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpFechaInscripcionFinal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaInscripcionFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaInscripcionFinal.Location = new System.Drawing.Point(391, 195);
+            this.dtpFechaInscripcionFinal.Location = new System.Drawing.Point(388, 195);
             this.dtpFechaInscripcionFinal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpFechaInscripcionFinal.Name = "dtpFechaInscripcionFinal";
-            this.dtpFechaInscripcionFinal.Size = new System.Drawing.Size(339, 27);
+            this.dtpFechaInscripcionFinal.Size = new System.Drawing.Size(341, 27);
             this.dtpFechaInscripcionFinal.TabIndex = 127;
             this.dtpFechaInscripcionFinal.ValueChanged += new System.EventHandler(this.dtpFechaInscripcionFinal_ValueChanged);
             // 
@@ -281,7 +289,7 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(391, 170);
+            this.label19.Location = new System.Drawing.Point(388, 170);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(36, 19);
@@ -308,9 +316,9 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
             this.label21.Location = new System.Drawing.Point(4, 135);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(359, 19);
+            this.label21.Size = new System.Drawing.Size(361, 19);
             this.label21.TabIndex = 123;
-            this.label21.Text = "Fecha de inscripción anual";
+            this.label21.Text = "Fecha de Preinscripción anual";
             // 
             // txtCantidadSemana
             // 
@@ -320,9 +328,10 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
             this.txtCantidadSemana.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCantidadSemana.MaxLength = 2;
             this.txtCantidadSemana.Name = "txtCantidadSemana";
-            this.txtCantidadSemana.Size = new System.Drawing.Size(339, 27);
+            this.txtCantidadSemana.Size = new System.Drawing.Size(341, 27);
             this.txtCantidadSemana.TabIndex = 121;
             this.txtCantidadSemana.Text = "0";
+            this.txtCantidadSemana.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidadSemana_KeyPress);
             // 
             // dtpFechaCierre
             // 
@@ -331,10 +340,10 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
             this.dtpFechaCierre.Enabled = false;
             this.dtpFechaCierre.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaCierre.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaCierre.Location = new System.Drawing.Point(391, 85);
+            this.dtpFechaCierre.Location = new System.Drawing.Point(388, 85);
             this.dtpFechaCierre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpFechaCierre.Name = "dtpFechaCierre";
-            this.dtpFechaCierre.Size = new System.Drawing.Size(339, 27);
+            this.dtpFechaCierre.Size = new System.Drawing.Size(341, 27);
             this.dtpFechaCierre.TabIndex = 120;
             this.dtpFechaCierre.ValueChanged += new System.EventHandler(this.dtpFechaCierre_ValueChanged);
             // 
@@ -344,10 +353,10 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFechaDeCierre.AutoSize = true;
             this.lblFechaDeCierre.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaDeCierre.Location = new System.Drawing.Point(393, 60);
+            this.lblFechaDeCierre.Location = new System.Drawing.Point(390, 60);
             this.lblFechaDeCierre.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblFechaDeCierre.Name = "lblFechaDeCierre";
-            this.lblFechaDeCierre.Size = new System.Drawing.Size(335, 19);
+            this.lblFechaDeCierre.Size = new System.Drawing.Size(337, 19);
             this.lblFechaDeCierre.TabIndex = 63;
             this.lblFechaDeCierre.Text = "Fecha de cierre:";
             // 
@@ -359,7 +368,7 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
             this.lblCantidadDeSemana.Location = new System.Drawing.Point(26, 60);
             this.lblCantidadDeSemana.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblCantidadDeSemana.Name = "lblCantidadDeSemana";
-            this.lblCantidadDeSemana.Size = new System.Drawing.Size(335, 19);
+            this.lblCantidadDeSemana.Size = new System.Drawing.Size(337, 19);
             this.lblCantidadDeSemana.TabIndex = 94;
             this.lblCantidadDeSemana.Text = "Cantidad de semanas:";
             // 
@@ -369,9 +378,9 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
             this.txtAnioLectivo.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAnioLectivo.Location = new System.Drawing.Point(26, 28);
             this.txtAnioLectivo.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.txtAnioLectivo.MaxLength = 30;
+            this.txtAnioLectivo.MaxLength = 4;
             this.txtAnioLectivo.Name = "txtAnioLectivo";
-            this.txtAnioLectivo.Size = new System.Drawing.Size(335, 27);
+            this.txtAnioLectivo.Size = new System.Drawing.Size(337, 27);
             this.txtAnioLectivo.TabIndex = 1;
             this.txtAnioLectivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAnioLectivo_KeyPress);
             // 
@@ -383,7 +392,7 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
             this.lblNuevoCicloLectivo.Location = new System.Drawing.Point(26, 0);
             this.lblNuevoCicloLectivo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblNuevoCicloLectivo.Name = "lblNuevoCicloLectivo";
-            this.lblNuevoCicloLectivo.Size = new System.Drawing.Size(335, 19);
+            this.lblNuevoCicloLectivo.Size = new System.Drawing.Size(337, 19);
             this.lblNuevoCicloLectivo.TabIndex = 65;
             this.lblNuevoCicloLectivo.Text = "Año:";
             // 
@@ -393,10 +402,10 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
             this.dtpFechaInicio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpFechaInicio.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaInicio.Location = new System.Drawing.Point(391, 25);
+            this.dtpFechaInicio.Location = new System.Drawing.Point(388, 25);
             this.dtpFechaInicio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpFechaInicio.Name = "dtpFechaInicio";
-            this.dtpFechaInicio.Size = new System.Drawing.Size(339, 27);
+            this.dtpFechaInicio.Size = new System.Drawing.Size(341, 27);
             this.dtpFechaInicio.TabIndex = 119;
             this.dtpFechaInicio.ValueChanged += new System.EventHandler(this.dtpFechaInicio_ValueChanged);
             // 
@@ -404,7 +413,7 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
             // 
             this.lblFechaDeApertura.AutoSize = true;
             this.lblFechaDeApertura.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaDeApertura.Location = new System.Drawing.Point(393, 0);
+            this.lblFechaDeApertura.Location = new System.Drawing.Point(390, 0);
             this.lblFechaDeApertura.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblFechaDeApertura.Name = "lblFechaDeApertura";
             this.lblFechaDeApertura.Size = new System.Drawing.Size(141, 19);
@@ -428,7 +437,7 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
             this.tableLayoutPanel4.ColumnCount = 5;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Controls.Add(this.lblFechaDeApertura, 3, 0);
@@ -464,7 +473,7 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
             this.grbFinalesMarzo.Controls.Add(this.tableLayoutPanel3);
             this.grbFinalesMarzo.Dock = System.Windows.Forms.DockStyle.Top;
             this.grbFinalesMarzo.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbFinalesMarzo.Location = new System.Drawing.Point(20, 293);
+            this.grbFinalesMarzo.Location = new System.Drawing.Point(20, 402);
             this.grbFinalesMarzo.Name = "grbFinalesMarzo";
             this.grbFinalesMarzo.Size = new System.Drawing.Size(760, 109);
             this.grbFinalesMarzo.TabIndex = 131;
@@ -500,9 +509,9 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
             this.grbFinalesJulio.Controls.Add(this.tableLayoutPanel2);
             this.grbFinalesJulio.Dock = System.Windows.Forms.DockStyle.Top;
             this.grbFinalesJulio.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbFinalesJulio.Location = new System.Drawing.Point(20, 402);
+            this.grbFinalesJulio.Location = new System.Drawing.Point(20, 511);
             this.grbFinalesJulio.Name = "grbFinalesJulio";
-            this.grbFinalesJulio.Size = new System.Drawing.Size(760, 109);
+            this.grbFinalesJulio.Size = new System.Drawing.Size(760, 103);
             this.grbFinalesJulio.TabIndex = 130;
             this.grbFinalesJulio.TabStop = false;
             this.grbFinalesJulio.Text = "Fecha de inscripción Finales Julio";
@@ -528,7 +537,7 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(754, 83);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(754, 77);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // grbFinalesDiciembre
@@ -536,7 +545,7 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
             this.grbFinalesDiciembre.Controls.Add(this.tableLayoutPanel1);
             this.grbFinalesDiciembre.Dock = System.Windows.Forms.DockStyle.Top;
             this.grbFinalesDiciembre.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbFinalesDiciembre.Location = new System.Drawing.Point(20, 511);
+            this.grbFinalesDiciembre.Location = new System.Drawing.Point(20, 614);
             this.grbFinalesDiciembre.Name = "grbFinalesDiciembre";
             this.grbFinalesDiciembre.Size = new System.Drawing.Size(760, 109);
             this.grbFinalesDiciembre.TabIndex = 129;
@@ -573,12 +582,94 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
             this.tableLayoutPanel5.Controls.Add(this.btnAceptar, 1, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(20, 620);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(20, 723);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(760, 56);
             this.tableLayoutPanel5.TabIndex = 133;
+            // 
+            // grbInscripcionSuperior
+            // 
+            this.grbInscripcionSuperior.Controls.Add(this.tableLayoutPanel6);
+            this.grbInscripcionSuperior.Dock = System.Windows.Forms.DockStyle.Top;
+            this.grbInscripcionSuperior.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbInscripcionSuperior.Location = new System.Drawing.Point(20, 293);
+            this.grbInscripcionSuperior.Name = "grbInscripcionSuperior";
+            this.grbInscripcionSuperior.Size = new System.Drawing.Size(760, 109);
+            this.grbInscripcionSuperior.TabIndex = 134;
+            this.grbInscripcionSuperior.TabStop = false;
+            this.grbInscripcionSuperior.Text = "Fecha de inscripción a Cursos Superiores";
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 5;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.Controls.Add(this.dtpFechaSuperiorInicio, 1, 1);
+            this.tableLayoutPanel6.Controls.Add(this.dtpFechaSuperiorFinal, 3, 1);
+            this.tableLayoutPanel6.Controls.Add(this.label1, 3, 0);
+            this.tableLayoutPanel6.Controls.Add(this.label2, 1, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 23);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 5;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(754, 83);
+            this.tableLayoutPanel6.TabIndex = 0;
+            // 
+            // dtpFechaSuperiorInicio
+            // 
+            this.dtpFechaSuperiorInicio.CustomFormat = "";
+            this.dtpFechaSuperiorInicio.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtpFechaSuperiorInicio.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.dtpFechaSuperiorInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaSuperiorInicio.Location = new System.Drawing.Point(24, 25);
+            this.dtpFechaSuperiorInicio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtpFechaSuperiorInicio.Name = "dtpFechaSuperiorInicio";
+            this.dtpFechaSuperiorInicio.Size = new System.Drawing.Size(339, 27);
+            this.dtpFechaSuperiorInicio.TabIndex = 139;
+            // 
+            // dtpFechaSuperiorFinal
+            // 
+            this.dtpFechaSuperiorFinal.CustomFormat = "";
+            this.dtpFechaSuperiorFinal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtpFechaSuperiorFinal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaSuperiorFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaSuperiorFinal.Location = new System.Drawing.Point(391, 25);
+            this.dtpFechaSuperiorFinal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtpFechaSuperiorFinal.Name = "dtpFechaSuperiorFinal";
+            this.dtpFechaSuperiorFinal.Size = new System.Drawing.Size(339, 27);
+            this.dtpFechaSuperiorFinal.TabIndex = 142;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(391, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 19);
+            this.label1.TabIndex = 132;
+            this.label1.Text = "Fin:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(24, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 19);
+            this.label2.TabIndex = 135;
+            this.label2.Text = "Inicio:";
             // 
             // FormAgregarModificarCicloLectivo
             // 
@@ -591,6 +682,7 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
             this.Controls.Add(this.grbFinalesDiciembre);
             this.Controls.Add(this.grbFinalesJulio);
             this.Controls.Add(this.grbFinalesMarzo);
+            this.Controls.Add(this.grbInscripcionSuperior);
             this.Controls.Add(this.grbDatosCicloLectivo);
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormAgregarModificarCicloLectivo";
@@ -611,6 +703,9 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
+            this.grbInscripcionSuperior.ResumeLayout(false);
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -653,5 +748,11 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.GroupBox grbInscripcionSuperior;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.DateTimePicker dtpFechaSuperiorInicio;
+        private System.Windows.Forms.DateTimePicker dtpFechaSuperiorFinal;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
