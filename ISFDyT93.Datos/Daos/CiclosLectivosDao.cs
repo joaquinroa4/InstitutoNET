@@ -64,7 +64,13 @@ namespace ISFDyT93.Datos.Daos
             
             return result;
         }
-        
+
+        public int AgregarFechaInscripcionSuperiores(CicloLectivoModelo modelo)
+        {
+            string query = $"update CicloLectivo set FechaInscripcionSuperioresInicio = '{modelo.FechaInscripcionSuperioresInicio:yyyy-MM-dd}', FechaInscripcionSuperioresFinal = '{modelo.FechaInscripcionSuperioresFinal:yyyy-MM-dd}' where AnioLectivo = {modelo.AnioLectivo}";
+            return this.Conexion.EjecutarAccion(query);
+        }
+
         public int AgregarFechaFinalesMarzo(CicloLectivoModelo modelo)
         {
             string query = $"update CicloLectivo set FechaMarzoInicio = '{modelo.FechaMarzoInicio:yyyy-MM-dd}', FechaMarzoFinal = '{modelo.FechaMarzoFinal:yyyy-MM-dd}' where anioLectivo = {modelo.AnioLectivo}";
