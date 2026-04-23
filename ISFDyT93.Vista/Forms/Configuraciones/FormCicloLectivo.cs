@@ -39,6 +39,7 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
             dgvCicloLectivo.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvCicloLectivo.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
+            
             //AnioLectivo, FechaInicio, FechaCierre, Activo
             List<string> columnasVisibles = new List<string>() { "AnioLectivo", "FechaInicio", "FechaCierre", "Activo" };
             foreach(DataGridViewColumn column in dgvCicloLectivo.Columns)
@@ -48,6 +49,10 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
                     column.Visible = false;
                 }
             }
+            dgvCicloLectivo.Columns["AnioLectivo"].HeaderText = "Año Lectivo";
+            dgvCicloLectivo.Columns["FechaInicio"].HeaderText = "Fecha de Inicio";
+            dgvCicloLectivo.Columns["FechaCierre"].HeaderText = "Fecha deCierre";
+            dgvCicloLectivo.Columns["Activo"].HeaderText = "Activo";
         }
 
         private void dgvCicloLectivo_MouseUp(object sender, MouseEventArgs e)
