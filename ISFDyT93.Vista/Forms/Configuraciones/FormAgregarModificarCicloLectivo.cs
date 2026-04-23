@@ -62,20 +62,24 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
                 dtpFechaInscripcionFinal.Enabled = false;
                 txtCantidadSemana.Enabled = false;
                 txtAnioLectivo.Enabled = false;
-                
 
-                lblFinFinalDiciembre.Visible = true;
-                lblFinFinalJunio.Visible = true;
-                lblFinFinalMarzo.Visible = true;
-                lblInicioFinalDiciembre.Visible = true;
-                lblInicioFinalJunio.Visible = true;
-                lblInicioFinalMarzo.Visible = true;
-                dtpFechaDiciembreFinal.Visible = true;
-                dtpFechaDiciembreInicio1.Visible = true;
-                dtpFechaMarzoFinal.Visible = true;
-                dtpFechaJunioFinal.Visible = true;
-                dtpFechaJunioInicio.Visible = true;
-                dtpFechaMarzoInicio.Visible = true;
+
+
+                grbFinalesMarzo.Enabled = true;
+                grbFinalesJulio.Enabled = true;
+                grbFinalesDiciembre.Enabled = true;
+                //lblFinFinalDiciembre.Visible = true;
+                //lblFinFinalJunio.Visible = true;
+                //lblFinFinalMarzo.Visible = true;
+                //lblInicioFinalDiciembre.Visible = true;
+                //lblInicioFinalJunio.Visible = true;
+                //lblInicioFinalMarzo.Visible = true;
+                //dtpFechaDiciembreFinal.Visible = true;
+                //dtpFechaDiciembreInicio1.Visible = true;
+                //dtpFechaMarzoFinal.Visible = true;
+                //dtpFechaJunioFinal.Visible = true;
+                //dtpFechaJunioInicio.Visible = true;
+                //dtpFechaMarzoInicio.Visible = true;
 
                 txtAnioLectivo.Text = this.CicloLectivoId.ToString();
                 CargarDatos(this.CicloLectivoId);
@@ -95,6 +99,7 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
                 grbFinalesMarzo.Visible = false;
                 grbFinalesJulio.Visible = false;
                 grbFinalesDiciembre.Visible = false;
+                grbInscripcionSuperior.Visible = false;
 
                 ciclo = cicloLectivosLogica.ObtenerMaximoAnioCicloLectivo() + 1;
                 txtAnioLectivo.Text = ciclo == 1 ? (DateTime.Now.Year + 1).ToString() : ciclo.ToString();
@@ -106,16 +111,18 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
                 if (this.Accion == TipoAccion.Ver)
             {
                 this.Contenedor.SetTitulo("Ver Ciclo Lectivo ");
-                dtpFechaInicio.Enabled = true;
-                dtpFechaCierre.Enabled = true;
-                dtpFechaInscripcionInicio.Enabled = true;
-                dtpFechaInscripcionFinal.Enabled = true;
-                txtCantidadSemana.Enabled = true;
+                dtpFechaInicio.Enabled = false;
+                dtpFechaCierre.Enabled = false;
+                dtpFechaInscripcionInicio.Enabled = false;
+                dtpFechaInscripcionFinal.Enabled = false;
+                txtCantidadSemana.Enabled = false;
                 txtAnioLectivo.Enabled = false;
 
                 grbFinalesMarzo.Enabled = false;
                 grbFinalesJulio.Enabled = false;
                 grbFinalesDiciembre.Enabled = false;
+                grbInscripcionSuperior.Enabled = false;
+
 
                 if (CicloLectivoId.ToString()== "0" )
                     CicloLectivoId = (cicloLectivosLogica.ObtenerMaximoAnioCicloLectivo());
@@ -166,7 +173,33 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
                 dtpFechaCierre.Text = dt.Rows[0]["FechaCierre"].ToString();
                 dtpFechaInscripcionInicio.Text = dt.Rows[0]["FechaInscripcionInicio"].ToString();
                 dtpFechaInscripcionFinal.Text = dt.Rows[0]["FechaInscripcionFinal"].ToString();
+                dtpFechaSuperiorInicio.Text = dt.Rows[0]["FechaInscripcionSuperioresInicio"].ToString();
+                dtpFechaSuperiorFinal.Text = dt.Rows[0]["FechaInscripcionSuperioresFinal"].ToString();
                 txtCantidadSemana.Text = dt.Rows[0]["CantidadSemana"].ToString();
+
+                if (dt.Rows.Contains("FechaInscripcionSuperioresInicio") && (dt.Rows[0]["FechaInscripcionSuperioresInicio"].ToString()) != ("01/01/1900 0:00:00").ToString() && dt.Rows[0]["FechaInscripcionSuperioresInicio"] != DBNull.Value)
+                {
+                    dtpFechaSuperiorInicio.Value = Convert.ToDateTime(dt.Rows[0]["FechaInscripcionSuperioresInicio"]);
+                    dtpFechaSuperiorInicio.CustomFormat = "dd/MM/yyyy";
+                    dtpFechaSuperiorInicio.Format = DateTimePickerFormat.Custom;
+                }
+                else
+                {
+                    dtpFechaSuperiorInicio.CustomFormat = " ";
+                    dtpFechaSuperiorInicio.Format = DateTimePickerFormat.Custom;
+                }
+
+                if (dt.Rows.Contains("FechaInscripcionSuperioresFinal") && (dt.Rows[0]["FechaInscripcionSuperioresFinal"].ToString()) != ("01/01/1900 0:00:00").ToString() && dt.Rows[0]["FechaInscripcionSuperioresFinal"] != DBNull.Value)
+                  {
+                   dtpFechaSuperiorFinal.Value = Convert.ToDateTime(dt.Rows[0]["FechaInscripcionSuperioresFinal"]);
+                      dtpFechaSuperiorFinal.CustomFormat = "dd/MM/yyyy";
+                      dtpFechaSuperiorFinal.Format = DateTimePickerFormat.Custom;
+                    }
+                else
+                {
+                    dtpFechaSuperiorFinal.CustomFormat = " ";
+                    dtpFechaSuperiorFinal.Format = DateTimePickerFormat.Custom;
+                }
 
                 if ((dt.Rows[0]["FechaMarzoInicio"].ToString()) != ("01/01/1900 0:00:00").ToString())
                 {
@@ -250,7 +283,7 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             var CicloLectivo = this.MapToModel<CicloLectivoModelo>();
-            CicloLectivo.FechaDiciembreInicio = dtpFechaDiciembreInicio1.Value;
+            //CicloLectivo.FechaDiciembreInicio = dtpFechaDiciembreInicio1.Value;
                 DialogResult dr;
             if (CicloLectivo.Errores.Count == 0)
             {
@@ -274,7 +307,7 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
                     if (this.Accion == TipoAccion.Modificar)
                     {
                         dr = MessageBox.Show("¿Desea cargar las fechas de inscripción a finales?", "Inscripción a finales", MessageBoxButtons.YesNo);
-                        if ((dtpFechaMarzoInicio.CustomFormat != " ") && (dtpFechaMarzoFinal.CustomFormat != null) && (dtpFechaJunioInicio.CustomFormat != null) && (dtpFechaDiciembreInicio1.CustomFormat != null) && (dtpFechaJunioFinal.CustomFormat != " ") && (dtpFechaDiciembreFinal.CustomFormat != null) && (txtCantidadSemana.Text != "0"))
+                        if ((dtpFechaMarzoInicio.CustomFormat != null) && (dtpFechaMarzoFinal.CustomFormat != null) && (dtpFechaJunioInicio.CustomFormat != null) && (dtpFechaDiciembreInicio1.CustomFormat != null) && (dtpFechaJunioFinal.CustomFormat != " ") && (dtpFechaDiciembreFinal.CustomFormat != null) && (txtCantidadSemana.Text != "0"))
                         {
                             if (turnoId == 1)
                                 cicloLectivosLogica.AgregarFechaFinalesMarzo(CicloLectivo);
@@ -366,6 +399,26 @@ namespace ISFDyT93.Vista.Forms.Configuraciones
                 e.Handled = true;
             if (e.KeyChar == 08)
                 e.Handled = false;
+        }
+
+        private void txtCantidadSemana_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) == true))
+                e.Handled = true;
+            if (e.KeyChar == 08)
+                e.Handled = false;
+        }
+
+        private void dtpFechaSuperiorInicio_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpFechaSuperiorInicio.Value != dtpFechaSuperiorInicio.MinDate)
+                dtpFechaSuperiorInicio.CustomFormat = "dd/MM/yyyy";
+        }
+
+        private void dtpFechaSuperiorFinal_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpFechaSuperiorFinal.Value != dtpFechaSuperiorFinal.MinDate)
+                dtpFechaSuperiorFinal.CustomFormat = "dd/MM/yyyy";
         }
 
         private void dtpFechaMarzoFinal_ValueChanged(object sender, EventArgs e)
