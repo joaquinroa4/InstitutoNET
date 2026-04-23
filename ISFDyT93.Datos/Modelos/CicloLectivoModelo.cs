@@ -28,12 +28,11 @@ namespace ISFDyT93.Datos.Modelos
         public DateTime? FechaInscripcionFinal { get; set; }
         [Obligatorio("Modificando")]
 
-        public DateTime? FechaInscripcionSuperiorInicio { get; set; }
-        [Obligatorio(condicion: "checkFechaInscripcionSuperiorInicio")]
-        [MayorQue("FechaInscripcionSuperiorInicio")]
-        public DateTime? FechaInscripcionSuperiorFinal { get; set; }
-        [Obligatorio(condicion: "checkFechaInscripcionSuperiorInicio")]
-        [MayorQue("FechaInscripcionSuperiorInicio")]
+        public DateTime? FechaInscripcionSuperioresInicio { get; set; }
+        [Obligatorio(condicion: "checkFechaInscripcionSuperioresInicio")]
+        [MayorQue("FechaInscripcionSuperioresInicio")]
+        public DateTime? FechaInscripcionSuperioresFinal { get; set; }
+        [Obligatorio("Modificando")]
         public DateTime? FechaMarzoInicio { get; set; }
         [Obligatorio(condicion: "checkFechaMarzoInicio")]
         [MayorQue("FechaMarzoInicio")]
@@ -61,7 +60,7 @@ namespace ISFDyT93.Datos.Modelos
 
         public bool checkFechaInicio() => this.Modificando() && this.FechaInicio != null;
         public bool checkFechaInscripcionInicio() => this.FechaInscripcionInicio != null;
-        public bool checkFechaInscripcionSuperiorInicio() => this.FechaInscripcionSuperiorInicio != null;
+        public bool checkFechaInscripcionSuperioresInicio() => this.FechaInscripcionSuperioresInicio != null;
 
         public bool checkFechaMarzoInicio() => this.Modificando() && this.FechaMarzoInicio != null;
         public bool checkFechaJunioInicio() => this.Modificando() && this.FechaJunioInicio != null;
